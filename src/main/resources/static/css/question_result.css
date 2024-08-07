@@ -1,0 +1,19 @@
+#radio input[type="radio"] {display: none; }
+#radio input:checked + .button {background: #5c6bc0; color: #fff; cursor: default; width: 600px; }
+#radio .button {display: inline-block; margin: 0 5px 10px 0; padding: 5px 10px; background: #f7f7f7; color: #333; cursor: pointer;  width: 600px;}
+
+#radio .round {border-radius: 5px;  }
+
+.ans {
+    margin-left: 36px !important;
+}
+
+/*.btn:focus {*/
+/*    outline: 0 !important;*/
+/*    box-shadow: none !important;*/
+/*}*/
+
+/*.btn:active {*/
+/*    outline: 0 !important;*/
+/*    box-shadow: none !important;*/
+/*}*/
