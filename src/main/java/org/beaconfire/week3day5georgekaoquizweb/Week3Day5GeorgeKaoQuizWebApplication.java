@@ -19,7 +19,7 @@ public class Week3Day5GeorgeKaoQuizWebApplication {
     public static void main(String[] args) {
         SpringApplication.run(Week3Day5GeorgeKaoQuizWebApplication.class, args);
 
-        userDaoJdbcImpl.getAllUsers().forEach((user) -> System.out.println(user));
+        //userDaoJdbcImpl.getAllUsers().forEach((user) -> System.out.println(user));
     }
 
 }

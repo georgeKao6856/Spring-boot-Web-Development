@@ -96,4 +96,9 @@ public class UserDaoHibernateImpl extends AbstractHibernateDao<UserHibernate> im
 
         getCurrentSession().update(user);
     }
+
+    @Override
+    public void deleteUserByEmailJdbc(String email) {
+
+    }
 }

@@ -77,4 +77,9 @@ public class UserDaoJdbcImpl implements UserDao {
         System.out.println("Successfully updated user status");
     }
 
+    public void deleteUserByEmailJdbc(String email){
+        String query = "DELETE FROM Users WHERE email = ?";
+        jdbcTemplate.update(query, email);
+    }
+
 }

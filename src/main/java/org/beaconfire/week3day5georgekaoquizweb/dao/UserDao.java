@@ -12,4 +12,5 @@ public interface UserDao {
     User getUserByEmail(String email);
     void createUser(String username, String firstname, String lastname, String email, String passwd);
     void updateUserStatus(int user_id);
+    void deleteUserByEmailJdbc(String email);
 }

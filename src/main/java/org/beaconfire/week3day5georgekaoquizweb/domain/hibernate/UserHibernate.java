@@ -42,7 +42,7 @@ public class UserHibernate extends User {
     @Column(nullable = false, name = "is_active", insertable = false)
     private boolean active;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     @ToString.Exclude
     private List<HistoryQuizHibernate> historyQuizzes;
 }

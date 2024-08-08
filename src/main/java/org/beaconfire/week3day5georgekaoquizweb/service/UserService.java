@@ -44,7 +44,24 @@ public class UserService {
     }
 
     @Transactional
+    public List<User> getAllUsersJdbc() {
+        return userJdbcDao.getAllUsers();
+    }
+
+    @Transactional
     public void updateUserStatus(int user_id){
         userHibernateDao.updateUserStatus(user_id);
+    }
+
+    public User getUserByEmailJdbc(String email) {
+        return userJdbcDao.getUserByEmail(email);
+    }
+
+    public void deleteUserByEmailJdbc(String email) {
+        userJdbcDao.deleteUserByEmailJdbc(email);
+    }
+
+    public User getUserByUserIdJdbc(int user_id){
+        return userJdbcDao.getUserByUserId(user_id);
     }
 }

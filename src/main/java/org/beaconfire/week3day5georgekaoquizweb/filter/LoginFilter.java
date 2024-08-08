@@ -44,6 +44,8 @@ public class LoginFilter extends OncePerRequestFilter {
             flag = true;
         }else if("/register".equals(path)){
             flag = true;
+        }else if(path.startsWith("/rs_user")){
+            flag = true;
         }
 //        else if("/home".equals(path) || "/WEB-INF/jsp/home.jsp".equals(path)){
 //            flag = true;
