@@ -2,11 +2,13 @@ package org.beaconfire.week3day5georgekaoquizweb.service;
 
 import org.beaconfire.week3day5georgekaoquizweb.dao.UserDao;
 import org.beaconfire.week3day5georgekaoquizweb.domain.User;
+import org.jasypt.encryption.StringEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +17,10 @@ public class UserService {
 
     private UserDao userJdbcDao;
     private UserDao userHibernateDao;
+
+    @Qualifier("jasyptStringEncryptor")
+    @Autowired
+    private StringEncryptor encryptor;
 
     @Autowired
     public UserService(@Qualifier("userDaoJdbcImpl") UserDao userJdbcDao, @Qualifier("UserDaoHibernateImpl") UserDao userHibernateDao) {
@@ -26,7 +32,12 @@ public class UserService {
     public Optional<User> validateLogin(String email, String passwd) {
         User user = userHibernateDao.getUserByEmail(email);
 
-        if(user !=null && user.getEmail().equals(email) && user.getPasswd().equals(passwd) && user.isActive()){
+        String decryptedPasswd = encryptor.decrypt(user.getPasswd());
+
+        System.out.println("input: " + passwd);
+        System.out.println("Decrypted: " + decryptedPasswd);
+
+        if(user !=null && user.getEmail().equals(email) && decryptedPasswd.equals(passwd) && user.isActive()){
             return Optional.of(user);
         }else{
             return Optional.empty();

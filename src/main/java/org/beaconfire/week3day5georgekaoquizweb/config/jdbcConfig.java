@@ -15,6 +15,7 @@ import javax.sql.DataSource;
 @PropertySource("classpath:application.properties")
 @ComponentScan(basePackages = {"org.beaconfire.week3day5georgekaoquizweb"})
 public class jdbcConfig {
+
     @Value("${spring.datasource.driver-class-name}")
     private String JDBC_DRIVER;
     @Value("${spring.datasource.url}")
